@@ -1,0 +1,45 @@
+{% load static %}
+<html>
+<head>
+    <title>Blog Posts</title>
+    <style>
+        .post-box {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .post-title {
+            font-size: 1.5em;
+            margin-bottom: 5px;
+        }
+        .post-author {
+            font-style: italic;
+            color: #555;
+        }
+        .post-date {
+            color: #888;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <h1>All Blog Posts</h1>
+    <div class="posts-container">
+        {% for post in posts %}
+            <div class="post-box">
+                <div class="post-title">
+                    <a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a>
+                </div>
+                <div class="post-author">
+                    By {{ post.author.username }}
+                </div>
+                <div class="post-date">
+                    on {{ post.created_at }}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

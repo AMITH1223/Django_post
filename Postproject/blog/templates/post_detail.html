@@ -1,0 +1,14 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ post.title }}</title>
+</head>
+<body>
+    <h1>Title: {{ post.title }}</h1>
+    <p>Content: {{ post.content }}</p>
+    <p>Author: {{ post.author.username }}</p>
+    <p>Published on: {{ post.created_at }}</p>
+    <a href="{% url 'post_list' %}">Back to all posts</a>
+</body>
+</html>
